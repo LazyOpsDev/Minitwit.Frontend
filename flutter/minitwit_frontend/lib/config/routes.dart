@@ -7,6 +7,7 @@ class Routes {
   static String home = "/home";
   static String register = "/register";
   static String login = "/login";
+  static String timeline = "/timeline";
 
   static void configureRoutes(Router router) {
     router.notFoundHandler = Handler(
@@ -17,5 +18,6 @@ class Routes {
     router.define(home, handler: homeHandler, transitionType: TransitionType.fadeIn);
     router.define(login, handler: loginHandler, transitionType: TransitionType.fadeIn);
     router.define(register, handler: registerHandler, transitionType: TransitionType.fadeIn);
+    router.define(timeline, handler: timelineHandler, transitionType: TransitionType.fadeIn);
   }
 }

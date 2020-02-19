@@ -19,6 +19,13 @@ class LoginPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Text("Welcome to Minitwit", 
+              style: TextStyle(
+                fontSize: 48.0,
+                color: Colors.blue,
+              ),
+            ),
+            SizedBox(height: 100.0),
             Container(
               width: 150.0,
               child: TextField(
@@ -29,7 +36,7 @@ class LoginPage extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 50.0),
+            SizedBox(height: 25.0),
 
             Container(
               width: 150.0,
@@ -42,7 +49,7 @@ class LoginPage extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 20.0),
+            SizedBox(height: 25.0),
 
             MaterialButton(
               child: Text("Login"),

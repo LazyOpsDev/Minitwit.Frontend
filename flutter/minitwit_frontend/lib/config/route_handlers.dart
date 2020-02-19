@@ -20,7 +20,7 @@ final loginHandler = Handler(handlerFunc: (BuildContext context, Map<String, dyn
 });
 
 final registerHandler = Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
-  return NavigationContainer(body: RegisterPage());
+  return RegisterPage();
 });
 
 final timelineHandler = Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {

@@ -7,6 +7,8 @@ class LoginPage extends StatelessWidget {
   final unController = TextEditingController();
   final pwController = TextEditingController();
 
+  final textFieldWidth = 200.0;
+
   // TODO:
   bool validUser(String username, String password) {
     return true;
@@ -27,7 +29,7 @@ class LoginPage extends StatelessWidget {
             ),
             SizedBox(height: 100.0),
             Container(
-              width: 150.0,
+              width: textFieldWidth,
               child: TextField(
                 controller: unController,
                 decoration: InputDecoration(
@@ -39,7 +41,7 @@ class LoginPage extends StatelessWidget {
             SizedBox(height: 25.0),
 
             Container(
-              width: 150.0,
+              width: textFieldWidth,
               child: TextField(
                 obscureText: true,
                 controller: pwController,

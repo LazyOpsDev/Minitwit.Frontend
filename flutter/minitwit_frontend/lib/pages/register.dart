@@ -3,6 +3,7 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:minitwit_frontend/config/application.dart';
+import 'package:minitwit_frontend/models/user.dart';
 import 'package:toast/toast.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -19,6 +20,10 @@ class RegisterPage extends StatelessWidget {
 
   bool emailAlreadyExists(String email) {
     return false;
+  }
+
+  bool registerUser(RegisterUser user) {
+    return true;
   }
   
   @override
@@ -105,6 +110,15 @@ class RegisterPage extends StatelessWidget {
                   Toast.show("Email is already being used", context, backgroundColor: Colors.red, duration: Toast.LENGTH_LONG + Toast.LENGTH_SHORT);
                   return;
                 }
+
+                RegisterUser newUser = RegisterUser(
+                  id: "totally random id",
+                  email: emailController.text,
+                  username: unController.text,
+                  password: pwController.text, 
+                );
+
+
 
                 Application.router.navigateTo(context, "/login", transition: TransitionType.fadeIn);
               },

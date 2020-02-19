@@ -7,3 +7,8 @@ Go to flutter installation directory.
 $ git checkout v.1.12.6
 $ flutter doctor
 ```
+
+# Running
+```sh
+$ flutter run -d chrome
+```

@@ -28,7 +28,8 @@ class NavigationContainer extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.person),
             onPressed: () {
-                  Application.router.navigateTo(context, "/home", transition: TransitionType.fadeIn);
+                  // TODO: FIX THIS
+                  Application.router.navigateTo(context, "/users/123", transition: TransitionType.fadeIn);
             }
           ),
 

@@ -1,7 +1,6 @@
 
 import 'dart:convert';
 import 'dart:io';
-import 'strings'
 
 import 'package:minitwit_frontend/models/user.dart';
 

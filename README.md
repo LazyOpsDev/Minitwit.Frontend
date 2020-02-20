@@ -13,6 +13,7 @@ flutter doctor
 
 ```sh
 flutter channel beta
+# checkout flutter to v1.12.6
 flutter upgrade
 flutter config --enable-web
 ```

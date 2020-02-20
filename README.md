@@ -1,5 +1,6 @@
 # Build and run in docker
 ```sh
+cd minitwit_frontend
 docker build -t minitwit:frontend .
 docker run -d -p 8080:80 --name minitwit-fe minitwit:frontend
 ```
@@ -16,11 +17,13 @@ flutter channel beta
 flutter config --enable-web
 cd flutter
 git checkout v1.12.6
+cd ..
 flutter doctor
 ```
 Also, install Google Chrome (optional)
 
 # Running
 ```sh
-$ flutter run -d chrome
+cd minitwit_frontend
+flutter run -d chrome
 ```

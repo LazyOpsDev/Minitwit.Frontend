@@ -1,8 +1,8 @@
 
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:minitwit_frontend/models/tweet.dart';
+
+import '../models/tweet.dart';
 
 class TweetList extends StatefulWidget {
 

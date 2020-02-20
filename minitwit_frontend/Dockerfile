@@ -1,10 +1,10 @@
-FROM ubuntu:18.04
+FROM ubuntu:18.04 AS build-env
 
 # Install Git, Curl etc.
 RUN apt update
 RUN apt upgrade -y
-RUN apt install curl git unzip -y 
-
+RUN apt install curl git wget unzip libgconf-2-4 gdb libstdc++6 libglu1-mesa lib32stdc++6 python3 -y 
+RUN apt-get clean
 
 WORKDIR /home/developer
 
@@ -23,8 +23,7 @@ RUN flutter doctor
 
 WORKDIR /home/developer/minitwit
 COPY . .
-RUN flutter pub get
+RUN flutter build web
 
-# Setup new user
-RUN useradd -ms /bin/bash developer
-USER developer
+FROM nginx
+COPY --from=build-env /home/developer/minitwit/build/web /usr/share/nginx/html

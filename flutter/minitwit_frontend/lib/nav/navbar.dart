@@ -32,6 +32,14 @@ class NavigationContainer extends StatelessWidget {
             }
           ),
 
+          MaterialButton(
+            child: Text("Logout"),
+            color: Colors.red,
+            onPressed: () {
+              Application.router.navigateTo(context, "/login", transition: TransitionType.fadeIn);
+            },
+          )
+
         ],
       ),
       body: this.body,

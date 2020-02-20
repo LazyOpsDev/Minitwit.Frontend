@@ -1,24 +1,24 @@
-# Setup
-Requires flutter v.1.12.6.
+# Build and run in docker
+```sh
+docker build -t minitwit:frontend .
+docker run -d -p 8080:80 --name minitwit-fe minitwit:frontend
+```
+Open your favourite browser and go to http://localhost:8080
 
-Go to flutter installation directory.
-
+# Setup local environment
+Perform following steps:
 ```sh
 git submodule init
 git submodule update
 # Add path to .bashrc, e.g.:
 export PATH="$PATH:`pwd`/flutter/bin"
+flutter channel beta
+flutter config --enable-web
+cd flutter
+git checkout v1.12.6
 flutter doctor
 ```
-
-```sh
-flutter channel beta
-# checkout flutter to v1.12.6
-flutter upgrade
-flutter config --enable-web
-```
-
-Also, Install Google Chrome :)
+Also, install Google Chrome (optional)
 
 # Running
 ```sh

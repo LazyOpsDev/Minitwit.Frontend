@@ -1,8 +1,10 @@
 
-import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:minitwit_frontend/config/application.dart';
+import 'package:minitwit_frontend/models/user.dart';
+import 'package:minitwit_frontend/pages/login.dart';
+import 'package:minitwit_frontend/pages/timeline.dart';
+import 'package:minitwit_frontend/pages/userPage.dart';
 
 class NavigationContainer extends StatelessWidget {
 
@@ -21,15 +23,17 @@ class NavigationContainer extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.timeline),
             onPressed: () {
-                  Application.router.navigateTo(context, "/timeline", transition: TransitionType.fadeIn);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationContainer(body: TimelinePage())));
+              //Application.router.navigateTo(context, "/timeline", transition: TransitionType.fadeIn);
             }
           ),
 
           IconButton(
             icon: Icon(Icons.person),
             onPressed: () {
-                  // TODO: FIX THIS
-                  Application.router.navigateTo(context, "/users/123", transition: TransitionType.fadeIn);
+              var fakeUser = User(email: "fake@email.com", id: "123", username: "John Doe");
+              Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationContainer(body: UserPage(fakeUser))));
+              //Application.router.navigateTo(context, "/users/123", transition: TransitionType.fadeIn);
             }
           ),
 
@@ -37,7 +41,8 @@ class NavigationContainer extends StatelessWidget {
             child: Text("Logout"),
             color: Colors.red,
             onPressed: () {
-              Application.router.navigateTo(context, "/login", transition: TransitionType.fadeIn);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+              //Application.router.navigateTo(context, "/login", transition: TransitionType.fadeIn);
             },
           )
 

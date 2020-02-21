@@ -1,6 +1,7 @@
-import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'package:minitwit_frontend/config/application.dart';
+import 'package:minitwit_frontend/nav/navbar.dart';
+import 'package:minitwit_frontend/pages/home.dart';
+import 'package:minitwit_frontend/pages/register.dart';
 
 class LoginPage extends StatelessWidget {
 
@@ -59,7 +60,8 @@ class LoginPage extends StatelessWidget {
               textColor: Colors.white,
               onPressed: () {
                 if (validUser(unController.text, pwController.text))
-                  Application.router.navigateTo(context, "/home", transition: TransitionType.fadeIn);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationContainer(body: HomePage())));
+                  //Application.router.navigateTo(context, "/home", transition: TransitionType.fadeIn);
                 else
                   print("invalid username/password");
               },
@@ -71,7 +73,8 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
               onTap: () {
-                Application.router.navigateTo(context, "/register", transition: TransitionType.fadeIn);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterPage()));
+                //Application.router.navigateTo(context, "/register", transition: TransitionType.fadeIn);
               },
             )
           ],

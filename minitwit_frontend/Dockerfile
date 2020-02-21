@@ -15,15 +15,12 @@ ENV PATH "$PATH:/home/developer/flutter/bin"
 RUN flutter channel beta
 RUN flutter config --enable-web
 
-RUN cd /home/developer/flutter \
- && git checkout v1.12.16
-
 # Run basic check to download Dark SDK
 RUN flutter doctor
 
 WORKDIR /home/developer/minitwit
 COPY . .
-RUN flutter build web
+RUN flutter build web --profile
 
 FROM nginx
 COPY --from=build-env /home/developer/minitwit/build/web /usr/share/nginx/html

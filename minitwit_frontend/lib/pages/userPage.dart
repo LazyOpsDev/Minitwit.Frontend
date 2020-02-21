@@ -12,10 +12,12 @@ class UserPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tweets = TweetList(Future.delayed(Duration(seconds: 2), () => privateTweets));
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
+          SizedBox(height: 100.0),
           Text(user.username),
           SizedBox(height: 50.0),
           Text("Follow:"),
@@ -23,8 +25,11 @@ class UserPage extends StatelessWidget {
           IconButton(icon: Icon(Icons.person_add), onPressed: () {
             Toast.show("Clicked follow!", context, duration: Toast.LENGTH_SHORT);
           }),
-
-          TweetList(Future.delayed(Duration(seconds: 2), () => privateTweets)),
+          SizedBox(height: 25.0),
+          Expanded(
+            child: tweets,
+          ),
+          //TweetList(Future.delayed(Duration(seconds: 2), () => privateTweets)),
 
         ],
       )

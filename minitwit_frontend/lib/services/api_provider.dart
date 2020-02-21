@@ -66,5 +66,9 @@ class ApiProvider {
     );
   }
 
+  Future<List<User>> fetchFollowers(String username) async {
+    // TODO: Dependency on backend api
+  }
+
 
 }

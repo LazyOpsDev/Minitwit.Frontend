@@ -16,7 +16,7 @@ class TweetList extends StatefulWidget {
 }
 
 Widget _buildListItem(BuildContext context, Tweet tweet) {
-  return Text("Author: ${tweet.author} | Msg: ${tweet.msg}");
+  return tweet;
 }
 
 class _TweetListState extends State<TweetList> {
@@ -28,16 +28,17 @@ class _TweetListState extends State<TweetList> {
         if (!snapshot.hasData) 
           return Center(child: CircularProgressIndicator());
         
-        return ListView.builder(
+        return Center(child: Container(
+          width: 600.0,
+          child:Scrollbar(
+          child: ListView.builder(
             itemCount: snapshot.data.length,
             itemBuilder: (context, index) =>
                 _buildListItem(context, snapshot.data[index]),
-          );
+          ))));
       },
     );
-    return SizedBox(
-            height: 200.0,
-            child: builder);
+    return builder; 
   }
 
 }

@@ -19,15 +19,12 @@ class Tweet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: Colors.blue,
-      child: Row(
-        children: <Widget>[
-          Text("Author: $author"),
-          SizedBox(width: 10.0),
-          Text(msg),
-        ],
-      ),
-    );
+    return 
+      Card(
+        color: Colors.blue,
+        child: Container(
+          height: 50.0,
+          child: Center(child: Text("Author: $author | Msg: $msg", style: TextStyle(color: Colors.white), textAlign: TextAlign.center))),
+      );
   }
 }

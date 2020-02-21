@@ -60,8 +60,7 @@ class LoginPage extends StatelessWidget {
               textColor: Colors.white,
               onPressed: () {
                 if (validUser(unController.text, pwController.text))
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationContainer(body: HomePage())));
-                  //Application.router.navigateTo(context, "/home", transition: TransitionType.fadeIn);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationContainer(body: HomePage(isLoggedIn: true), title: "Personal Timeline",)));
                 else
                   print("invalid username/password");
               },
@@ -74,7 +73,6 @@ class LoginPage extends StatelessWidget {
               ),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterPage()));
-                //Application.router.navigateTo(context, "/register", transition: TransitionType.fadeIn);
               },
             )
           ],

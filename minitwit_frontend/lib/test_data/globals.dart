@@ -9,6 +9,14 @@ final publicTweets = [
     Tweet(author: "123", msg: "I am 123, I am smart"),
   ];
 
+Iterable<Tweet> publicTweetsLong() sync* {
+  int i = 1;
+  while (i < 100) {
+    yield publicTweets.first;
+    i++;
+  }
+} 
+
 final privateTweets = [
     Tweet(author: "123", msg: "I am 123, I am smart"),
 ];

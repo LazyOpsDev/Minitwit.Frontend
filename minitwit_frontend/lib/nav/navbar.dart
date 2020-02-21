@@ -31,7 +31,7 @@ class NavigationContainer extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.person),
             onPressed: () {
-              var fakeUser = User(email: "fake@email.com", id: "123", username: "John Doe");
+              var fakeUser = User(username: "John Doe");
               Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationContainer(body: UserPage(fakeUser))));
               //Application.router.navigateTo(context, "/users/123", transition: TransitionType.fadeIn);
             }

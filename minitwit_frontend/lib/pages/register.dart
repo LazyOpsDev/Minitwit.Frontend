@@ -1,9 +1,8 @@
 
-import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:minitwit_frontend/config/application.dart';
 import 'package:minitwit_frontend/models/user.dart';
+import 'package:minitwit_frontend/pages/login.dart';
 import 'package:toast/toast.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -118,9 +117,11 @@ class RegisterPage extends StatelessWidget {
                   password: pwController.text, 
                 );
 
+                // TODO: Do this
+                var created = registerUser(newUser);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
 
-
-                Application.router.navigateTo(context, "/login", transition: TransitionType.fadeIn);
+                //Application.router.navigateTo(context, "/login", transition: TransitionType.fadeIn);
               },
             ),
           ],

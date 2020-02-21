@@ -17,7 +17,6 @@ class UserPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(user.username),
-          Text("Email: ${user.email ?? user.username}"),
           SizedBox(height: 50.0),
           Text("Follow:"),
           SizedBox(height: 25.0),

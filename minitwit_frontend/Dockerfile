@@ -16,7 +16,7 @@ RUN flutter channel beta
 RUN flutter config --enable-web
 
 RUN cd /home/developer/flutter \
- && git checkout v1.12.6
+ && git checkout v1.12.16
 
 # Run basic check to download Dark SDK
 RUN flutter doctor

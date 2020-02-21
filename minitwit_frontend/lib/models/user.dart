@@ -14,13 +14,11 @@ class RegisterUser {
 }
 
 class User {
-  final String id;
   final String username;
-  final String email;
+  final String password;  
 
   const User({
-    this.id,
     this.username,
-    this.email,
+    this.password,
   });
 }

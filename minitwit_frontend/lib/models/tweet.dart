@@ -3,14 +3,19 @@ import 'package:flutter/material.dart';
 
 class Tweet extends StatelessWidget {
 
-  final String msg;
-  final String author;
+  String msg;
+  String author;
 
-  const Tweet({
+  Tweet({
     Key key,
     this.msg,
     this.author
   }) : super(key: key);
+
+  Tweet.fromJson(Map<String,dynamic> parsedJson){
+    msg = parsedJson['Content'];
+    author = parsedJson['UserId'];
+  }
 
   @override
   Widget build(BuildContext context) {

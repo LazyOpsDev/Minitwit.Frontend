@@ -1,7 +1,5 @@
-import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'config/application.dart';
-import 'config/routes.dart';
+import 'pages/login.dart';
 
 void main() {
   runApp(AppComponent());
@@ -15,11 +13,6 @@ class AppComponent extends StatefulWidget {
 }
 
 class AppComponentState extends State<AppComponent> {
-  AppComponentState() {
-    final router = Router();
-    Routes.configureRoutes(router);
-    Application.router = router;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +22,7 @@ class AppComponentState extends State<AppComponent> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      onGenerateRoute: Application.router.generator,
+      home: LoginPage(),
     );
     return app;
   }

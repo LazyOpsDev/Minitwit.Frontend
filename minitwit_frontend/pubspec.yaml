@@ -9,7 +9,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  fluro: "^1.5.2"
   responsive_builder: ^0.1.2
   toast: ^0.1.5
 

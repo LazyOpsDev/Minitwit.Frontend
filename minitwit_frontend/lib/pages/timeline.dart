@@ -2,7 +2,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:minitwit_frontend/components/tweet_list.dart';
-import 'package:minitwit_frontend/models/tweet.dart';
 import 'package:minitwit_frontend/test_data/globals.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 

@@ -20,7 +20,7 @@ RUN flutter doctor
 
 WORKDIR /home/developer/minitwit
 COPY . .
-RUN flutter build web --profile
+RUN flutter build web
 
 FROM nginx
 COPY --from=build-env /home/developer/minitwit/build/web /usr/share/nginx/html

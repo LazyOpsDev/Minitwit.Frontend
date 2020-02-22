@@ -34,7 +34,7 @@ class NavigationContainer extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.home),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationContainer(body: HomePage(isLoggedIn: true), title: "Public Timeline",)));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationContainer(body: HomePage(isLoggedIn: true), title: "Personal Timeline",)));
             }
           ),
 

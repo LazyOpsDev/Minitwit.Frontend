@@ -1,0 +1,32 @@
+language: dart
+mono: none
+
+dotnet: 3.1.100
+services:
+  - docker
+
+jobs:
+  include:
+    - stage: build
+      name: "Build Docker Image"
+      script: 
+        - cd minitwit_frontend && docker build -t minitwit:frontend-b -f Dockerfile.build .
+        - docker run -d -p 8080:80 --name minitwit-fe minitwit:frontend-b
+
+    - stage: build
+      name: "Build Web App"
+      script:
+        - docker run minitwit:frontend-b /bin/sh -c 'flutter build web'
+
+    - stage: test
+      name: "Run Tests"
+      script: 
+        - docker run minitwit:frontend-b /bin/sh -c 'flutter test'
+
+notifications:
+  email:
+    - krza@itu.dk
+    - mr.kislun@gmail.com
+    - phko@itu.dk
+    - alsb@itu.dk
+    - arca@itu.dk

@@ -8,19 +8,15 @@ services:
 jobs:
   include:
     - stage: build
-      name: "Build Docker Image"
+      name: "Build Web App"
       script: 
         - cd minitwit_frontend && docker build -t minitwit:frontend-b -f Dockerfile.build .
-        - docker run -d -p 8080:80 --name minitwit-fe minitwit:frontend-b
-
-    - stage: build
-      name: "Build Web App"
-      script:
         - docker run minitwit:frontend-b /bin/sh -c 'flutter build web'
 
     - stage: test
       name: "Run Tests"
       script: 
+        - cd minitwit_frontend && docker build -t minitwit:frontend-b -f Dockerfile.build .
         - docker run minitwit:frontend-b /bin/sh -c 'flutter test'
 
 notifications:

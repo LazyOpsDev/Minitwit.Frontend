@@ -1,10 +1,12 @@
 import 'dart:async';
 import 'dart:convert' as convert;
 import 'dart:core';
+import 'package:http/http.dart';
 import 'package:minitwit_frontend/models/tweet.dart';
 import 'package:minitwit_frontend/models/user.dart';
 
-final baseurl = "http://207.154.252.199/";
+final baseurl = "http://localhost/";
+// final baseurl = "http://207.154.252.199/";
 // final client = Client();
 
 final String _logout = "logout";

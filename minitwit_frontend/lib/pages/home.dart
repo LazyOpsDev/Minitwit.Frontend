@@ -3,32 +3,54 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:minitwit_frontend/components/tweet_list.dart';
 import 'package:minitwit_frontend/models/tweet.dart';
-import 'package:minitwit_frontend/services/api_provider.dart';
-import 'package:minitwit_frontend/test_data/globals.dart';
-import 'package:responsive_builder/responsive_builder.dart';
+import 'package:minitwit_frontend/services/backend.dart';
 import 'package:toast/toast.dart';
 
-Future<List<Tweet>> publicTweets = null; //fetchPublicTimeline();
-
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   final bool isLoggedIn;
   const HomePage({this.isLoggedIn});
+
   @override
-  Widget build(BuildContext context) {
-    return  _HomePage(isLoggedIn: isLoggedIn);
-  }
+  State<StatefulWidget> createState() => _HomePageState();
 }
 
-class _HomePage extends StatelessWidget {
+class _HomePageState extends State<HomePage> {
   final tweetController = TextEditingController();
-  final bool isLoggedIn;
-  _HomePage({this.isLoggedIn});
+
+  Future<List<Tweet>> publicTweets;
+
+  @override
+  void initState() {
+    super.initState();
+    publicTweets = getPublicTimeline();
+  }
+
   @override
   Widget build(BuildContext context) {
-    var tweets = TweetList(publicTweets);
-    // isLoggedIn ? 
-    //   TweetList(Future.delayed(Duration(seconds: 2), () => publicTweets)) : List();
-    //   TweetList(Future.delayed(Duration(seconds: 2), () => ApiProvider().fetchPublicTimeline()));
+
+    final builder = FutureBuilder<List<Tweet>>(
+      future: publicTweets, 
+      builder: (context, AsyncSnapshot<List<Tweet>> snapshot) {
+        if (!snapshot.hasData) 
+          return Center(child: CircularProgressIndicator());
+        
+        return Center(child: Container(
+          width: 600.0,
+          child:Scrollbar(
+          child: ListView.builder(
+            itemCount: snapshot.data.length,
+            itemBuilder: (context, index) {
+                return Card(
+                  color: Colors.blue,
+                  child: Container(
+                    height: 50.0,
+                    child: Center(child: Text("Author: ${snapshot.data[index].author} | Msg: ${snapshot.data[index].msg}", style: TextStyle(color: Colors.white), textAlign: TextAlign.center))),
+                );
+            }
+          ))));
+      },
+    );
+
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -54,7 +76,7 @@ class _HomePage extends StatelessWidget {
           SizedBox(height: 30.0,),
           Expanded(
             flex: 8,
-            child: tweets,
+            child: builder,
           ),
           Expanded(
             flex: 2,

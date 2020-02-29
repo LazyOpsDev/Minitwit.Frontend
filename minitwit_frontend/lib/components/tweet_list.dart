@@ -16,7 +16,12 @@ class TweetList extends StatefulWidget {
 }
 
 Widget _buildListItem(BuildContext context, Tweet tweet) {
-  return tweet;
+  return Card(
+        color: Colors.blue,
+        child: Container(
+          height: 50.0,
+          child: Center(child: Text("Author: ${tweet.author} | Msg: ${tweet.msg}", style: TextStyle(color: Colors.white), textAlign: TextAlign.center))),
+      );
 }
 
 class _TweetListState extends State<TweetList> {

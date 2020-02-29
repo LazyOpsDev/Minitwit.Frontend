@@ -2,9 +2,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:minitwit_frontend/components/tweet_list.dart';
+import 'package:minitwit_frontend/models/tweet.dart';
+import 'package:minitwit_frontend/services/api_provider.dart';
 import 'package:minitwit_frontend/test_data/globals.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:toast/toast.dart';
+
+Future<List<Tweet>> publicTweets = null; //fetchPublicTimeline();
 
 class HomePage extends StatelessWidget {
   final bool isLoggedIn;
@@ -21,9 +25,10 @@ class _HomePage extends StatelessWidget {
   _HomePage({this.isLoggedIn});
   @override
   Widget build(BuildContext context) {
-    var tweets =  isLoggedIn ? 
-      TweetList(Future.delayed(Duration(seconds: 2), () => publicTweets)) :
-      TweetList(Future.delayed(Duration(seconds: 2), () => publicTweetsLong().toList()));
+    var tweets = TweetList(publicTweets);
+    // isLoggedIn ? 
+    //   TweetList(Future.delayed(Duration(seconds: 2), () => publicTweets)) : List();
+    //   TweetList(Future.delayed(Duration(seconds: 2), () => ApiProvider().fetchPublicTimeline()));
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,

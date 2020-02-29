@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:minitwit_frontend/nav/navbar.dart';
 import 'package:minitwit_frontend/pages/home.dart';
 import 'package:minitwit_frontend/pages/register.dart';
+import 'package:minitwit_frontend/services/api_provider.dart';
 
 class LoginPage extends StatelessWidget {
 
@@ -74,7 +75,7 @@ class LoginPage extends StatelessWidget {
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterPage()));
               },
-            )
+            ),
           ],
         ) 
       ),

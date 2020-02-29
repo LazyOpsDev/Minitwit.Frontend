@@ -22,7 +22,7 @@ Widget _buildListItem(BuildContext context, Tweet tweet) {
 class _TweetListState extends State<TweetList> {
   @override
   Widget build(BuildContext context) {
-    final builder = FutureBuilder(
+    final builder = FutureBuilder<List<Tweet>>(
       future: widget.tweets, // TODO: Replace with future for getting 
       builder: (context, AsyncSnapshot<List<Tweet>> snapshot) {
         if (!snapshot.hasData) 

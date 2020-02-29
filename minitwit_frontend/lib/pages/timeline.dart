@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:minitwit_frontend/components/tweet_list.dart';
+import 'package:minitwit_frontend/services/api_provider.dart';
 import 'package:minitwit_frontend/test_data/globals.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -18,7 +19,8 @@ class _Timeline extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TweetList(Future.delayed(Duration(seconds: 2), () => publicTweets));
+    return null;
+    // return TweetList(Future.delayed(Duration(seconds: 2), () => ApiProvider().fetchPublicTimeline()));
   }
 
 }

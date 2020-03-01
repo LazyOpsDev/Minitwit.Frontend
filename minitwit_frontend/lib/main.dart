@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:minitwit_frontend/services/backend.dart';
 import 'pages/login.dart';
 
 void main() {

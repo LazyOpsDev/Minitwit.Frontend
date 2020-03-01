@@ -2,8 +2,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:minitwit_frontend/models/user.dart';
-import 'package:minitwit_frontend/pages/home.dart';
 import 'package:minitwit_frontend/pages/login.dart';
+import 'package:minitwit_frontend/pages/public.dart';
 import 'package:minitwit_frontend/pages/timeline.dart';
 import 'package:minitwit_frontend/pages/userPage.dart';
 
@@ -27,14 +27,14 @@ class NavigationContainer extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.timeline),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationContainer(body: HomePage(isLoggedIn: false), title: "Public Timeline",)));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationContainer(body: PublicPage(), title: "Public Timeline",)));
             }
           ),
 
           IconButton(
             icon: Icon(Icons.home),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationContainer(body: HomePage(isLoggedIn: true), title: "Personal Timeline",)));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationContainer(body: Timeline(), title: "Personal Timeline",)));
             }
           ),
 

@@ -2,7 +2,17 @@ import 'package:http/http.dart' as http;
 import 'package:minitwit_frontend/models/tweet.dart';
 import 'dart:convert' as convert;
 
+// final baseurl = "http://207.154.252.199/";
 final baseurl = "http://localhost/";
+
+final String _logout = "logout";
+final String _login = "login";
+final String _register = "register";
+final String _publicTimeline = "";
+final String _userTimeline = "logout";
+final String _tweets = "msgs/"; 
+final String _followers = "fllws/";
+final String _latest = "latest";
 
 Future<List<Tweet>> getPublicTimeline() async {
   var resp = await http.get(baseurl);

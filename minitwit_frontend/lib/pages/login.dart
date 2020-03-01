@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:minitwit_frontend/nav/navbar.dart';
-import 'package:minitwit_frontend/pages/home.dart';
+import 'package:minitwit_frontend/pages/public.dart';
 import 'package:minitwit_frontend/pages/register.dart';
-import 'package:minitwit_frontend/services/api_provider.dart';
 
 class LoginPage extends StatelessWidget {
 
@@ -61,7 +60,7 @@ class LoginPage extends StatelessWidget {
               textColor: Colors.white,
               onPressed: () {
                 if (validUser(unController.text, pwController.text))
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationContainer(body: HomePage(isLoggedIn: true), title: "Personal Timeline",)));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationContainer(body: PublicPage(), title: "Public Timeline",)));
                 else
                   print("invalid username/password");
               },

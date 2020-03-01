@@ -6,15 +6,14 @@ import 'package:minitwit_frontend/models/tweet.dart';
 import 'package:minitwit_frontend/services/backend.dart';
 import 'package:toast/toast.dart';
 
-class HomePage extends StatefulWidget {
-  final bool isLoggedIn;
-  const HomePage({this.isLoggedIn});
+class PublicPage extends StatefulWidget {
+  const PublicPage();
 
   @override
-  State<StatefulWidget> createState() => _HomePageState();
+  State<StatefulWidget> createState() => _PublicPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _PublicPageState extends State<PublicPage> {
   final tweetController = TextEditingController();
 
   Future<List<Tweet>> publicTweets;

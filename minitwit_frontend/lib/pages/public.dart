@@ -1,13 +1,14 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:minitwit_frontend/components/tweet_list.dart';
 import 'package:minitwit_frontend/models/tweet.dart';
+import 'package:minitwit_frontend/models/user.dart';
 import 'package:minitwit_frontend/services/backend.dart';
 import 'package:toast/toast.dart';
 
 class PublicPage extends StatefulWidget {
-  const PublicPage();
+  final User currentUser;
+  const PublicPage({this.currentUser});
 
   @override
   State<StatefulWidget> createState() => _PublicPageState();

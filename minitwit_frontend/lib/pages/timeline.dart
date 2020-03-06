@@ -2,11 +2,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:minitwit_frontend/models/tweet.dart';
+import 'package:minitwit_frontend/models/user.dart';
 import 'package:minitwit_frontend/services/backend.dart';
 import 'package:toast/toast.dart';
 
 class Timeline extends StatefulWidget {
-  const Timeline();
+  final User currentUser;
+  const Timeline({this.currentUser});
 
   @override
   State<StatefulWidget> createState() => _TimelineState();

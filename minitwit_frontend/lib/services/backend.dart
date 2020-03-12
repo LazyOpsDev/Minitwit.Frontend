@@ -4,7 +4,7 @@ import 'dart:convert' as convert;
 
 import 'package:minitwit_frontend/models/user.dart';
 
-final baseurl = "http://104.248.141.188/";
+final baseurl = "http://207.154.252.199/";
 
 final String _logout = "logout";
 final String _login = "login";
@@ -31,6 +31,8 @@ Future<List<Tweet>> getPublicTimeline() async {
 }
 
 Future<List<Tweet>> getUserTimeline(User user) async {
+  if (user == null)
+    return null;
   var resp = await http.get("$baseurl${user.username}");
   if (resp.statusCode != 200) 
     return null;
@@ -77,3 +79,19 @@ Future<User> register(RegisterUser register) async {
   user.cookie = "mysecretcookie"; // TODO: Fix this somehow?
   return user;
 }
+
+// Future<bool> tweet(String username, String msg) async {
+//   var resp = await http.post("$baseurl$_tweets$username", 
+//     body: { 
+//       "username": register.username, 
+//       "pwd": register.password,  
+//       "email": register.email
+//       }
+//   );
+
+//   if (resp.statusCode != 204) {
+//     return false;
+//   }
+//   return true;
+  
+// }

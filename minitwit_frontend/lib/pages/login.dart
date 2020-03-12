@@ -67,11 +67,8 @@ class LoginPage extends StatelessWidget {
 
                 Navigator.push(context, MaterialPageRoute(builder: 
                   (context) => NavigationContainer(
-                    body: 
-                      PublicPage(currentUser: User(
-                        username: unController.text, 
-                        password: pwController.text),
-                      ),
+                    currentUser: user,
+                    body: PublicPage(currentUser: user),
                     title: "Public Timeline")
                     )
                   );

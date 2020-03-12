@@ -11,10 +11,12 @@ class NavigationContainer extends StatelessWidget {
 
   final Widget body;
   final String title;
+  final User currentUser;
   const NavigationContainer({
     Key key,
     this.title,
-    this.body
+    this.body,
+    this.currentUser
   }) : super(key: key);
 
   @override
@@ -27,22 +29,21 @@ class NavigationContainer extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.timeline),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationContainer(body: PublicPage(), title: "Public Timeline",)));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationContainer(currentUser: currentUser,body: PublicPage(currentUser: currentUser,), title: "Public Timeline",)));
             }
           ),
 
           IconButton(
             icon: Icon(Icons.home),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationContainer(body: Timeline(), title: "Personal Timeline",)));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationContainer(currentUser: currentUser,body: Timeline(currentUser: currentUser,), title: "Personal Timeline",)));
             }
           ),
 
           IconButton(
             icon: Icon(Icons.person),
             onPressed: () {
-              var fakeUser = User(username: "John Doe");
-              Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationContainer(body: UserPage(fakeUser), title: "User Page: ${fakeUser.username}",)));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => NavigationContainer(currentUser: currentUser, body: UserPage(currentUser), title: "User Page: ${currentUser.username}",)));
             }
           ),
 

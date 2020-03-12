@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:minitwit_frontend/models/tweet.dart';
 import 'package:minitwit_frontend/models/user.dart';
-import 'package:minitwit_frontend/services/backend.dart';
+import 'package:minitwit_frontend/services/backend.dart' as API;
 import 'package:toast/toast.dart';
 
 class Timeline extends StatefulWidget {
@@ -22,7 +22,8 @@ class _TimelineState extends State<Timeline> {
   @override
   void initState() {
     super.initState();
-    publicTweets = getPublicTimeline();
+    print("CURRENT IS: ${widget.currentUser}");
+    publicTweets = API.getUserTimeline(widget.currentUser);
   }
 
   @override

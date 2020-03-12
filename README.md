@@ -1,4 +1,7 @@
-# Build and run in docker
+# Minitwit.Frontend
+[![Build Status](https://travis-ci.org/LazyOpsDev/Minitwit.Frontend.svg?branch=develop)](https://travis-ci.org/LazyOpsDev/Minitwit.Frontend)<br><br>
+
+## Build and run in docker
 ```sh
 cd minitwit_frontend
 docker build -t minitwit:frontend .
@@ -6,7 +9,7 @@ docker run -d -p 8080:80 --name minitwit-fe minitwit:frontend
 ```
 Open your favourite browser and go to http://localhost:8080
 
-# Setup local environment
+## Setup local environment
 Perform following steps:
 ```sh
 git submodule init
@@ -22,7 +25,7 @@ flutter doctor
 ```
 Also, install Google Chrome (optional)
 
-# Running
+## Running
 ```sh
 cd minitwit_frontend
 flutter run -d chrome

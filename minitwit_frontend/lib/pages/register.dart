@@ -3,7 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:minitwit_frontend/models/user.dart';
 import 'package:minitwit_frontend/pages/login.dart';
+import 'package:minitwit_frontend/pages/public.dart';
 import 'package:toast/toast.dart';
+import 'package:minitwit_frontend/services/backend.dart' as API;
 
 class RegisterPage extends StatelessWidget {
   final unController = TextEditingController();
@@ -94,7 +96,7 @@ class RegisterPage extends StatelessWidget {
               child: Text("Sign up"),
               color: Colors.blue,
               textColor: Colors.white,
-              onPressed: () {
+              onPressed: () async {
                 if (pwController.text != cpwController.text) {
                   Toast.show("Unable to confirm password", context, backgroundColor: Colors.red, duration: Toast.LENGTH_LONG + Toast.LENGTH_SHORT);
                   return;
@@ -117,11 +119,14 @@ class RegisterPage extends StatelessWidget {
                   password: pwController.text, 
                 );
 
-                // TODO: Do this
-                var created = registerUser(newUser);
-                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                var user = await API.register(newUser);
+                if (user == null) {
+                  print("user is null. Handle this better :)");
+                  return;
+                }
 
-                //Application.router.navigateTo(context, "/login", transition: TransitionType.fadeIn);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => PublicPage(currentUser: user)));
+
               },
             ),
           ],

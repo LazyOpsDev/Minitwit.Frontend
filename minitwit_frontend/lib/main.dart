@@ -24,6 +24,7 @@ class AppComponentState extends State<AppComponent> {
       ),
       home: LoginPage(),
     );
+
     return app;
   }
 }

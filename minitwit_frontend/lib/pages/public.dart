@@ -6,15 +6,15 @@ import 'package:minitwit_frontend/models/user.dart';
 import 'package:minitwit_frontend/services/backend.dart';
 import 'package:toast/toast.dart';
 
-class Timeline extends StatefulWidget {
+class PublicPage extends StatefulWidget {
   final User currentUser;
-  const Timeline({this.currentUser});
+  const PublicPage({this.currentUser});
 
   @override
-  State<StatefulWidget> createState() => _TimelineState();
+  State<StatefulWidget> createState() => _PublicPageState();
 }
 
-class _TimelineState extends State<Timeline> {
+class _PublicPageState extends State<PublicPage> {
   final tweetController = TextEditingController();
 
   Future<List<Tweet>> publicTweets;

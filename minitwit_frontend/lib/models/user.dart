@@ -14,10 +14,11 @@ class RegisterUser {
 }
 
 class User {
+  String cookie;
   final String username;
   final String password;  
 
-  const User({
+  User({
     this.username,
     this.password,
   });
